@@ -1,36 +1,58 @@
+
 using Microsoft.EntityFrameworkCore;
-using ErasmusProject;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Agregar el Contexto usando la cadena desde appsettings.json
-builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Ejecutar migraciones automáticamente (opcional)
-using (var scope = app.Services.CreateScope())
+namespace ErasmusProject
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
-    if (dbContext.Database.GetPendingMigrations().Any())
+    public class Program
     {
-        dbContext.Database.Migrate();
+        public static void Main(string[] args)
+        {
+            
+            var builder = WebApplication.CreateBuilder(args);
+
+            // Add services to the container.
+
+            builder.Services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<Context>(options =>
+            options.UseSqlServer("server=RAWAN;Database=Biedronka;Integrated Security=True;"));
+
+            var app = builder.Build();
+            
+            using (var scope = app.Services.CreateScope())
+            {
+                //var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+                //dbContext.Database.Migrate();
+                try
+                {
+                    var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+                    dbContext.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    // Log the error or print it
+                    Console.WriteLine("Migration failed: " + ex.Message);
+                    // Optional: log inner exception, stack trace, etc.
+                }
+            }
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseAuthorization();
+
+
+            app.MapControllers();
+
+            app.Run();
+        }
     }
-
 }
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();

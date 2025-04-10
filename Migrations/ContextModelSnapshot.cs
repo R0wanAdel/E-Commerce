@@ -58,9 +58,6 @@ namespace ErasmusProject.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -70,8 +67,6 @@ namespace ErasmusProject.Migrations
                     b.HasKey("DetailId");
 
                     b.HasIndex("CartId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("CartDetails");
                 });
@@ -215,12 +210,12 @@ namespace ErasmusProject.Migrations
             modelBuilder.Entity("ErasmusProject.Product", b =>
                 {
                     b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
-
                     b.Property<int>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartDetailId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -272,14 +267,6 @@ namespace ErasmusProject.Migrations
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("ErasmusProject.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
 
                     b.Navigation("ShoppingCart");
                 });
@@ -341,7 +328,13 @@ namespace ErasmusProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ErasmusProject.CartDetail", "CartDetail")
+                        .WithMany("Products")
+                        .HasForeignKey("ProductId");
+
                     b.Navigation("Admin");
+
+                    b.Navigation("CartDetail");
                 });
 
             modelBuilder.Entity("ErasmusProject.ShoppingCart", b =>
@@ -357,6 +350,11 @@ namespace ErasmusProject.Migrations
                 {
                     b.Navigation("Payments");
 
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("ErasmusProject.CartDetail", b =>
+                {
                     b.Navigation("Products");
                 });
 

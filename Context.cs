@@ -2,14 +2,24 @@
 
 namespace ErasmusProject
 {
-    public class Context : DbContext
+    public class Context :DbContext
     {
-        public Context(DbContextOptions<Context> options) : base(options) { }
+        public Context(DbContextOptions<Context> options)
+        : base(options)
+        {
 
+        }
+        public Context()
+        {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=RAWAN;Database=Ecommerce;Trusted_Connection=True;TrustServerCertificate=True;");
+
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Customer>()
                 .HasMany(c => c.ShoppingCarts)
                 .WithOne(c => c.Customer)
@@ -23,10 +33,10 @@ namespace ErasmusProject
                 .IsRequired();
 
             modelBuilder.Entity<CartDetail>()
-                .HasOne(cd => cd.Product)
-                .WithMany()
-                .HasForeignKey(cd => cd.ProductId)
-                .IsRequired();
+                .HasMany(c => c.Products)
+                .WithOne(c => c.CartDetail)
+                .HasForeignKey(c => c.ProductId)
+                .IsRequired(false);
 
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.OrderDetails)
@@ -34,6 +44,7 @@ namespace ErasmusProject
                 .HasForeignKey(o => o.OrderId)
                 .IsRequired();
 
+          
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Payment)
                 .WithOne(o => o.Order)
@@ -70,12 +81,8 @@ namespace ErasmusProject
                 .HasOne(op => op.Order)
                 .WithMany(op => op.OrderProducts)
                 .HasForeignKey(op => op.OrderId);
-
-            modelBuilder.Entity<Product>()
-                .Property(p => p.ProductId)
-                .ValueGeneratedOnAdd();
         }
-
+        
         public DbSet<Admin> Admins { get; set; }
         public DbSet<CartDetail> CartDetails { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -84,5 +91,8 @@ namespace ErasmusProject
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-    }
+
+        }
+    
 }
+
