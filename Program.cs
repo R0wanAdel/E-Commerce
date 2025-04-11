@@ -12,12 +12,17 @@ namespace ErasmusProject
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddJsonOptions(options=>
+                {
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                }
+                );
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<Context>(options =>
-            options.UseSqlServer("server=RAWAN;Database=Biedronka;Integrated Security=True;"));
+            options.UseSqlServer("server=RAWAN;Database=E-commerce;Integrated Security=True;"));
 
             var app = builder.Build();
             

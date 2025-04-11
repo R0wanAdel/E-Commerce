@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Erasmus\\project\\ErasmusProject\\ErasmusProject.csproj": {}
+    "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj": {}
   },
   "projects": {
-    "C:\\Erasmus\\project\\ErasmusProject\\ErasmusProject.csproj": {
+    "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Erasmus\\project\\ErasmusProject\\ErasmusProject.csproj",
+        "projectUniqueName": "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj",
         "projectName": "ErasmusProject",
-        "projectPath": "C:\\Erasmus\\project\\ErasmusProject\\ErasmusProject.csproj",
+        "projectPath": "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj",
         "packagesPath": "C:\\Users\\rawan\\.nuget\\packages\\",
-        "outputPath": "C:\\Erasmus\\project\\ErasmusProject\\obj\\",
+        "outputPath": "C:\\Erasmus\\project\\E-Commerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
