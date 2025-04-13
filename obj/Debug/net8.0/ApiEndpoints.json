@@ -110,6 +110,22 @@
   },
   {
     "ContainingType": "ErasmusProject.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ErasmusProject.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ErasmusProject.Controllers.AccountController",
     "Method": "Register",
     "RelativePath": "register",
     "HttpMethod": "POST",

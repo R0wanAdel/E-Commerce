@@ -7,8 +7,7 @@ namespace ErasmusProject.Models
     {
         public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            // Instantiate HMACSHA512 to generate a cryptographic hash and a unique key (salt).
-            // The 'using' statement ensures that the HMACSHA512 instance is disposed of correctly after use.
+            
             using (var hmac = new HMACSHA512())
             {
                 // The Key property of HMACSHA512 provides a randomly generated salt.
@@ -21,8 +20,6 @@ namespace ErasmusProject.Models
         }
         public static bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
-            // Instantiate HMACSHA512 with the stored salt as the key to ensure the same hashing parameters.
-            // The 'using' statement ensures that the HMACSHA512 instance is disposed of correctly after use.
             using (var hmac = new HMACSHA512(storedSalt))
             {
                 // Convert the plaintext password into a byte array using UTF-8 encoding.

@@ -36,6 +36,37 @@
         }
       }
     },
+    "/login": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Products": {
       "get": {
         "tags": [
@@ -346,6 +377,26 @@
               "$ref": "#/components/schemas/ShoppingCart"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDTO": {
+        "required": [
+          "Email",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "Password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
           }
         },
         "additionalProperties": false
