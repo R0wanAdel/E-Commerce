@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ErasmusProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20250411141340_mig1")]
-    partial class mig1
+    [Migration("20250427184707_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,9 @@ namespace ErasmusProject.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -70,6 +73,8 @@ namespace ErasmusProject.Migrations
                     b.HasKey("DetailId");
 
                     b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("CartDetails");
                 });
@@ -217,12 +222,12 @@ namespace ErasmusProject.Migrations
             modelBuilder.Entity("ErasmusProject.Product", b =>
                 {
                     b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CartDetailId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -272,8 +277,16 @@ namespace ErasmusProject.Migrations
                     b.HasOne("ErasmusProject.ShoppingCart", "ShoppingCart")
                         .WithMany("CartDetails")
                         .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("ErasmusProject.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Product");
 
                     b.Navigation("ShoppingCart");
                 });
@@ -283,7 +296,7 @@ namespace ErasmusProject.Migrations
                     b.HasOne("ErasmusProject.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -294,13 +307,13 @@ namespace ErasmusProject.Migrations
                     b.HasOne("ErasmusProject.Order", "Order")
                         .WithMany("OrderProducts")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ErasmusProject.Product", "Product")
                         .WithMany("OrderProducts")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -313,13 +326,13 @@ namespace ErasmusProject.Migrations
                     b.HasOne("ErasmusProject.Admin", "Admin")
                         .WithMany("Payments")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ErasmusProject.Order", "Order")
                         .WithOne("Payment")
                         .HasForeignKey("ErasmusProject.Payment", "OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Admin");
@@ -332,23 +345,18 @@ namespace ErasmusProject.Migrations
                     b.HasOne("ErasmusProject.Admin", "Admin")
                         .WithMany("Products")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ErasmusProject.CartDetail", "CartDetail")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductId");
-
                     b.Navigation("Admin");
-
-                    b.Navigation("CartDetail");
                 });
 
             modelBuilder.Entity("ErasmusProject.ShoppingCart", b =>
                 {
                     b.HasOne("ErasmusProject.Customer", "Customer")
                         .WithMany("ShoppingCarts")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Customer");
                 });
@@ -357,11 +365,6 @@ namespace ErasmusProject.Migrations
                 {
                     b.Navigation("Payments");
 
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("ErasmusProject.CartDetail", b =>
-                {
                     b.Navigation("Products");
                 });
 
