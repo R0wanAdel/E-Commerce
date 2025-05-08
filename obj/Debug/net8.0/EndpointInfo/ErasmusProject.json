@@ -314,11 +314,11 @@
       "AddToCartDTO": {
         "type": "object",
         "properties": {
-          "ProductId": {
+          "productId": {
             "type": "integer",
             "format": "int32"
           },
-          "Quantity": {
+          "quantity": {
             "type": "integer",
             "format": "int32"
           }
@@ -328,23 +328,23 @@
       "CartItemDTO": {
         "type": "object",
         "properties": {
-          "ProductId": {
+          "productId": {
             "type": "integer",
             "format": "int32"
           },
-          "ProductName": {
+          "productName": {
             "type": "string",
             "nullable": true
           },
-          "UnitPrice": {
+          "unitPrice": {
             "type": "number",
             "format": "double"
           },
-          "Quantity": {
+          "quantity": {
             "type": "integer",
             "format": "int32"
           },
-          "Total": {
+          "total": {
             "type": "number",
             "format": "double"
           }
@@ -353,17 +353,17 @@
       },
       "LoginDTO": {
         "required": [
-          "Email",
-          "Password"
+          "email",
+          "password"
         ],
         "type": "object",
         "properties": {
-          "Email": {
+          "email": {
             "minLength": 1,
             "type": "string",
             "format": "email"
           },
-          "Password": {
+          "password": {
             "minLength": 1,
             "type": "string",
             "format": "password"
@@ -374,23 +374,23 @@
       "ProductCreateDTO": {
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Description": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "Price": {
+          "price": {
             "type": "number",
             "format": "double"
           },
-          "Stock": {
+          "stock": {
             "type": "integer",
             "format": "int32"
           },
-          "AdminId": {
+          "adminId": {
             "type": "integer",
             "format": "int32"
           }
@@ -400,23 +400,23 @@
       "ProductUpdateDTO": {
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "Description": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "Price": {
+          "price": {
             "type": "number",
             "format": "double"
           },
-          "Stock": {
+          "stock": {
             "type": "integer",
             "format": "int32"
           },
-          "AdminId": {
+          "adminId": {
             "type": "integer",
             "format": "int32"
           }
@@ -425,40 +425,40 @@
       },
       "RegistrationDTO": {
         "required": [
-          "Address",
-          "Email",
-          "FirstName",
-          "LastName",
-          "Password",
-          "PhoneNumber"
+          "address",
+          "email",
+          "firstName",
+          "lastName",
+          "password",
+          "phoneNumber"
         ],
         "type": "object",
         "properties": {
-          "FirstName": {
+          "firstName": {
             "minLength": 1,
             "type": "string"
           },
-          "LastName": {
+          "lastName": {
             "minLength": 1,
             "type": "string"
           },
-          "Email": {
+          "email": {
             "minLength": 1,
             "type": "string",
             "format": "email"
           },
-          "Password": {
+          "password": {
             "maxLength": 100,
             "minLength": 8,
             "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&]).{8,}$",
             "type": "string",
             "format": "password"
           },
-          "Address": {
+          "address": {
             "minLength": 1,
             "type": "string"
           },
-          "PhoneNumber": {
+          "phoneNumber": {
             "minLength": 1,
             "type": "string"
           }
