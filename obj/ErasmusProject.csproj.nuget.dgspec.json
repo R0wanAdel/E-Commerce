@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlo\\source\\repos\\E-Commerce\\ErasmusProject.csproj": {}
+    "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlo\\source\\repos\\E-Commerce\\ErasmusProject.csproj": {
+    "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\source\\repos\\E-Commerce\\ErasmusProject.csproj",
+        "projectUniqueName": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj",
         "projectName": "ErasmusProject",
-        "projectPath": "C:\\Users\\carlo\\source\\repos\\E-Commerce\\ErasmusProject.csproj",
+        "projectPath": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj",
         "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\source\\repos\\E-Commerce\\obj\\",
+        "outputPath": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[48.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

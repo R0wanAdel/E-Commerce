@@ -171,43 +171,19 @@
         }
       }
     },
-    "/api/Products": {
-      "get": {
+    "/api/Payment": {
+      "post": {
         "tags": [
-          "Products"
+          "Payment"
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Product"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Product"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Product"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Products": {
       "post": {
         "tags": [
           "Products"
@@ -233,24 +209,17 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -273,24 +242,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -373,49 +325,6 @@
         },
         "additionalProperties": false
       },
-      "Admin": {
-        "required": [
-          "AdminId",
-          "Email",
-          "Name",
-          "Password"
-        ],
-        "type": "object",
-        "properties": {
-          "AdminId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Name": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "Email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "Password": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "Products": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            },
-            "nullable": true
-          },
-          "Payments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Payment"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CartItemDTO": {
         "type": "object",
         "properties": {
@@ -458,173 +367,6 @@
             "minLength": 1,
             "type": "string",
             "format": "password"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Order": {
-        "type": "object",
-        "properties": {
-          "OrderId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "OrderDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "Status": {
-            "type": "string",
-            "nullable": true
-          },
-          "TotalAmount": {
-            "type": "number",
-            "format": "double"
-          },
-          "PaymentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Payment": {
-            "$ref": "#/components/schemas/Payment"
-          },
-          "OrderDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderDetail"
-            },
-            "nullable": true
-          },
-          "OrderProducts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderProduct"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "OrderDetail": {
-        "type": "object",
-        "properties": {
-          "DetailId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Subtotal": {
-            "type": "number",
-            "format": "double"
-          },
-          "OrderId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Order": {
-            "$ref": "#/components/schemas/Order"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OrderProduct": {
-        "type": "object",
-        "properties": {
-          "OrderId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Order": {
-            "$ref": "#/components/schemas/Order"
-          },
-          "ProductId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Product": {
-            "$ref": "#/components/schemas/Product"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Payment": {
-        "required": [
-          "PaymentMethod"
-        ],
-        "type": "object",
-        "properties": {
-          "PaymentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "PaymentMethod": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "PaymentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "OrderId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Order": {
-            "$ref": "#/components/schemas/Order"
-          },
-          "AdminId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Admin": {
-            "$ref": "#/components/schemas/Admin"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Product": {
-        "type": "object",
-        "properties": {
-          "ProductId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Name": {
-            "type": "string",
-            "nullable": true
-          },
-          "Description": {
-            "type": "string",
-            "nullable": true
-          },
-          "Price": {
-            "type": "number",
-            "format": "double"
-          },
-          "Stock": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "AdminId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Admin": {
-            "$ref": "#/components/schemas/Admin"
-          },
-          "OrderProducts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderProduct"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

@@ -49,6 +49,22 @@ namespace ErasmusProject
                 });
             });
 
+            // CORS: permitir orígenes del frontend (XAMPP, Live Server, etc.)
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend", policy =>
+                {
+                    policy.WithOrigins(
+                        "http://localhost",
+                        "http://localhost:5500",
+                        "http://127.0.0.1",
+                        "http://127.0.0.1:5500"
+                    )
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+
             builder.Services.AddDbContext<Context>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -78,7 +94,7 @@ namespace ErasmusProject
             {
                 try
                 {
-                    var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+                    var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
                     dbContext.Database.Migrate();
                 }
                 catch (Exception ex)
@@ -94,6 +110,9 @@ namespace ErasmusProject
             }
 
             app.UseHttpsRedirection();
+
+            // Habilitar CORS antes de auth
+            app.UseCors("AllowFrontend");
 
             app.UseAuthentication();
             app.UseAuthorization();
