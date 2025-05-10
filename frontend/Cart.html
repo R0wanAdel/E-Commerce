@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <a href="Home.html"><img src="logo.png" alt="Logo" class="logo"></a>
+        <nav class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="Cart.html">🛒</a>
+            <a href="Register.html" class="register">Register</a>
+            <a href="LogIn.html" class="login">Login</a>
+        </nav>
+    </header>
+
+  <main class="checkout-container">
+    <section class="cart-summary">
+      <div class="cart-item">
+        <h3 class="item-title">Product</h3>
+        <p class="item-description">Description of first product</p>
+        <strong class="item-price">$10.99</strong>
+      </div>
+      <div class="cart-item">
+        <h3 class="item-title">Product</h3>
+        <p class="item-description">Description of first product</p>
+        <strong class="item-price">$10.99</strong>
+      </div>
+      <div class="cart-item">
+        <h3 class="item-title">Product</h3>
+        <p class="item-description">Description of first product</p>
+        <strong class="item-price">$10.99</strong>
+      </div>
+      <div class="cart-item">
+        <h3 class="item-title">Product</h3>
+        <p class="item-description">Description of first product</p>
+        <strong class="item-price">$10.99</strong>
+      </div>
+    </section>
+
+    <section class="checkout-form">
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name"/>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email"/>
+        </div>
+        <div class="form-group">
+          <label for="card-number">Card number</label>
+          <input type="text" id="card-number" name="card-number" />
+        </div>
+        <div class="form-group">
+          <label for="card-owner">Card Owner</label>
+          <input type="text" id="card-owner" name="card-owner" />
+        </div>
+        <div class="form-group">
+          <label for="security-number">Security number</label>
+          <input type="text" id="security-number" name="security-number" placeholder="XXX" />
+        </div>
+
+        <button type="submit" class="buy-button">Buy</button>
+      </form>
+    </section>
+  </main>
+
+  <section class="related-products">
+    <h2>Related products</h2>
+    <div class="product-grid">
+        <div class="product-card"><a href="ItemDetails.html">
+            <img src="https://kitchenacademy.es/wp-content/uploads/calabac%C3%ADn-1.jpg" alt="Product" class="product-image">
+            <div class="product-info">
+              <h3 class="product-title">Product</h3>
+              <p class="product-description">Description of product</p>
+              <p class="product-price">$10.99</p>
+            </a>
+            </div>
+          </div>
+          <div class="product-card"><a href="ItemDetails.html">
+            <img src="https://kitchenacademy.es/wp-content/uploads/calabac%C3%ADn-1.jpg" alt="Product" class="product-image">
+            <div class="product-info">
+              <h3 class="product-title">Product</h3>
+              <p class="product-description">Description of product</p>
+              <p class="product-price">$10.99</p>
+            </a>
+            </div>
+          </div>
+          <div class="product-card"><a href="ItemDetails.html">
+            <img src="https://kitchenacademy.es/wp-content/uploads/calabac%C3%ADn-1.jpg" alt="Product" class="product-image">
+            <div class="product-info">
+              <h3 class="product-title">Product</h3>
+              <p class="product-description">Description of product</p>
+              <p class="product-price">$10.99</p>
+            </a>
+            </div>
+          </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>ShopMart</h3>
+            <p>Your trustworthy shop with the best products.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: contact@shopmart.com</p>
+            <p>Teléfono: +123 456 789</p>
+            <p>Dirección: False street 123, CityName</p>
+        </div>
+        <div class="footer-section social-media">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </div>
+    <p class="footer-bottom">© 2025 ShopMart. All Rights reserved.</p>
+</footer>
+<script src="Cart.js"></script>
+</body>
+</html>
