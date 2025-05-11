@@ -117,6 +117,40 @@ namespace ErasmusProject.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("ErasmusProject.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
+
+                    b.Property<int>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PaymentId");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("OrderId")
+                        .IsUnique();
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("ErasmusProject.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -180,40 +214,6 @@ namespace ErasmusProject.Migrations
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderProduct");
-                });
-
-            modelBuilder.Entity("ErasmusProject.Payment", b =>
-                {
-                    b.Property<int>("PaymentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
-
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Amount")
-                        .HasColumnType("float");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PaymentMethod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PaymentId");
-
-                    b.HasIndex("AdminId");
-
-                    b.HasIndex("OrderId")
-                        .IsUnique();
-
-                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("ErasmusProject.Product", b =>
@@ -288,6 +288,25 @@ namespace ErasmusProject.Migrations
                     b.Navigation("ShoppingCart");
                 });
 
+            modelBuilder.Entity("ErasmusProject.Models.Payment", b =>
+                {
+                    b.HasOne("ErasmusProject.Admin", "Admin")
+                        .WithMany("Payments")
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ErasmusProject.Order", "Order")
+                        .WithOne("Payment")
+                        .HasForeignKey("ErasmusProject.Models.Payment", "OrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("ErasmusProject.OrderDetail", b =>
                 {
                     b.HasOne("ErasmusProject.Order", "Order")
@@ -316,25 +335,6 @@ namespace ErasmusProject.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ErasmusProject.Payment", b =>
-                {
-                    b.HasOne("ErasmusProject.Admin", "Admin")
-                        .WithMany("Payments")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ErasmusProject.Order", "Order")
-                        .WithOne("Payment")
-                        .HasForeignKey("ErasmusProject.Payment", "OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Admin");
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("ErasmusProject.Product", b =>

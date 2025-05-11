@@ -224,19 +224,18 @@
         }
       }
     },
-    "/api/Products/{id}": {
+    "/api/Products/{name}": {
       "get": {
         "tags": [
           "Products"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "name",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -245,7 +244,9 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Products/{id}": {
       "put": {
         "tags": [
           "Products"

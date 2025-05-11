@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj": {}
+    "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj": {
+    "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj",
+        "projectUniqueName": "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj",
         "projectName": "ErasmusProject",
-        "projectPath": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\ErasmusProject.csproj",
-        "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\Source\\Repos\\E-Commerce\\obj\\",
+        "projectPath": "C:\\Erasmus\\project\\E-Commerce\\ErasmusProject.csproj",
+        "packagesPath": "C:\\Users\\rawan\\.nuget\\packages\\",
+        "outputPath": "C:\\Erasmus\\project\\E-Commerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rawan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -100,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

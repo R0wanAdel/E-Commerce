@@ -63,10 +63,29 @@ namespace ErasmusProject.Controllers
         }
 
         // GET: api/Products/{id}
-        [HttpGet("{id}")]
+        /*[HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _context.Products.FindAsync(id);
+            if (product == null)
+                return NotFound();
+
+            var dto = new ProductResponseDTO
+            {
+                ProductId = product.ProductId,
+                Name = product.Name,
+                Description = product.Description,
+                Price = (double)product.Price,
+                Stock = product.Stock
+            };
+
+            return Ok(dto);
+        }*/
+        //get product by name 
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetProductByName(string name)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(x=>x.Name.ToLower() == name.ToLower());
             if (product == null)
                 return NotFound();
 

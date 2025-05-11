@@ -218,7 +218,6 @@ C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -232,17 +231,14 @@ C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Drawing.Common.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Formats.Asn1.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.IO.Pipelines.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Memory.Data.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Text.Json.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -314,13 +310,8 @@ C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
-C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Erasmus\project\E-Commerce\obj\Debug\net8.0\ErasmusProject.csproj.AssemblyReference.cache
 C:\Erasmus\project\E-Commerce\obj\Debug\net8.0\ErasmusProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Erasmus\project\E-Commerce\obj\Debug\net8.0\ErasmusProject.AssemblyInfoInputs.cache
@@ -514,3 +505,6 @@ C:\Users\carlo\source\repos\E-Commerce\obj\Debug\net8.0\ref\ErasmusProject.dll
 C:\Users\carlo\source\repos\E-Commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\carlo\Source\Repos\E-Commerce\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\carlo\Source\Repos\E-Commerce\bin\Debug\net8.0\Stripe.net.dll
+C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Erasmus\project\E-Commerce\bin\Debug\net8.0\Stripe.net.dll
