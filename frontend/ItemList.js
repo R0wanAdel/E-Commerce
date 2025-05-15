@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
+
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+
     const productGrid = document.querySelector('.product-grid');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');

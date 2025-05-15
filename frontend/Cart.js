@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+      const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
     const token = localStorage.getItem('token');
 
     if (!token) {
