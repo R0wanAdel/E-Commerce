@@ -35,6 +35,7 @@ namespace ErasmusProject
                     Scheme = "Bearer"
                 });
 
+
                 options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
@@ -54,14 +55,9 @@ namespace ErasmusProject
             // CORS: permitir orígenes del frontend (XAMPP, Live Server, etc.)
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowFrontend", policy =>
+                options.AddPolicy("AllowAll", policy =>
                 {
-                    policy.WithOrigins(
-                        "http://localhost",
-                        "http://localhost:5500",
-                        "http://127.0.0.1",
-                        "http://127.0.0.1:5500"
-                    )
+                    policy.AllowAnyOrigin()
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
@@ -115,6 +111,7 @@ namespace ErasmusProject
 
             // Habilitar CORS antes de auth
             app.UseCors("AllowFrontend");
+            app.UseCors("AllowAll");
 
             app.UseAuthentication();
             app.UseAuthorization();
