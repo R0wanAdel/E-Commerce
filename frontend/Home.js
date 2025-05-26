@@ -81,4 +81,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('❌ Error loading products:', error);
         container.innerHTML = '<p>Error loading products. Please try again later.</p>';
     }
+
+
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+
+
 });

@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
+
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
 
